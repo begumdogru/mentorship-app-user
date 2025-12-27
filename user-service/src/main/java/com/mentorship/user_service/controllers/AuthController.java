@@ -55,6 +55,8 @@ public class AuthController {
         User authenticatedUser = (User) (authentication != null ? authentication.getPrincipal() : null);
         UserDto user = UserDto.builder()
                 .username(authenticatedUser != null ? authenticatedUser.getUsername() : null)
+                .fullName(authenticatedUser != null ? authenticatedUser.getFullName() : null)
+                .user_id(authenticatedUser != null ? authenticatedUser.getUserId() : null)
                 .email(authenticatedUser != null ? authenticatedUser.getEmail() : null)
                 .build();
 
