@@ -26,7 +26,7 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer::disable) //hem cookie saldirilarina karsi koruma saglar hem de  token tabanli authentication yapiyoruz, bu nedenle csrf korumasini devre disi birakiyoruz.
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/v1/auth/**", "/api/v1/users/**").permitAll().anyRequest().authenticated()) //hangi endpointlere kim girebilir? Bizde login ve register endpointlerine herkes girebilsin, digerlerine ise sadece login olmus kullanicilar girebilsin.
+                .requestMatchers("/api/v1/auth/login", "/api/v1/users/register").permitAll().anyRequest().authenticated()) //hangi endpointlere kim girebilir? Bizde login ve register endpointlerine herkes girebilsin, digerlerine ise sadece login olmus kullanicilar girebilsin.
             .sessionManagement(session -> session.sessionCreationPolicy(
                 org.springframework.security.config.http.SessionCreationPolicy.STATELESS
             )) //stateless yapmamizin sebebi token tabanli authentication yapiyoruz. Yani her istekte token gonderilecek ve sunucu tarafinda herhangi bir session bilgisi tutulmayacak. bir de stateful degeri var. bunu yaparsak jessionId tutulacak (cookie) ve kullanici tarayiciyi kapatip actiginda tekrardan login olmadan girebilecek.
