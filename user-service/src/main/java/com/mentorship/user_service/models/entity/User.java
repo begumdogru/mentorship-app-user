@@ -44,7 +44,7 @@ public class User implements UserDetails {
     private Integer universityId;
 
     @Column(name = "role", nullable = false)
-    private Integer role;
+    private Role role;
 
     @Column(name = "sector", nullable = false)
     private Integer sector;

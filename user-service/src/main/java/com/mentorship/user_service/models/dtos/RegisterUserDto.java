@@ -1,5 +1,6 @@
 package com.mentorship.user_service.models.dtos;
 
+import com.mentorship.user_service.models.entity.Role;
 import lombok.Data;
 
 @Data
@@ -9,10 +10,9 @@ public class RegisterUserDto{
     public String password;
     public String email;
     public Integer universityId;
-    public Integer role;
+    public Role role;
     public Integer sector;
     public String biography;
     private Integer experience;
     public Double rating;
-    //TODO:: add other fields if necessary mesela sektor, deneyim yili vs
 }
