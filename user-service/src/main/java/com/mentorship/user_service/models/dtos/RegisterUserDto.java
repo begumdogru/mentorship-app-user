@@ -8,5 +8,11 @@ public class RegisterUserDto{
     public String fullName;    
     public String password;
     public String email;
+    public Integer universityId;
+    public Integer role;
+    public Integer sector;
+    public String biography;
+    private Integer experience;
+    public Double rating;
     //TODO:: add other fields if necessary mesela sektor, deneyim yili vs
 }

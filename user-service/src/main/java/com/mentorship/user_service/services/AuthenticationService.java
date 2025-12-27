@@ -22,9 +22,16 @@ public class AuthenticationService {
 
     public User signup(RegisterUserDto registerUserDto) {
         User user = User.builder()
+                .username(registerUserDto.getUsername())
                 .fullName(registerUserDto.getFullName())
                 .email(registerUserDto.getEmail())
                 .password(passwordEncoder.encode(registerUserDto.getPassword()))
+                .universityId(registerUserDto.getUniversityId())
+                .role(registerUserDto.getRole())
+                .sector(registerUserDto.getSector())
+                .biography(registerUserDto.getBiography())
+                .experience(registerUserDto.getExperience())
+                .rating(registerUserDto.getRating())
                 .build();
 
         return userRepository.save(user);
