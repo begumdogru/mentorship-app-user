@@ -1,6 +1,7 @@
 package com.mentorship.user_service.models.entity;
 
 public enum Role {
+    UNKNOWN(0),
     MENTOR(1),
     MENTEE(2);
 

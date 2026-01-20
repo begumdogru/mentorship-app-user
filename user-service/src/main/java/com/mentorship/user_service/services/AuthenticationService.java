@@ -2,6 +2,7 @@ package com.mentorship.user_service.services;
 
 import com.mentorship.user_service.models.dtos.LoginUserDto;
 import com.mentorship.user_service.models.dtos.RegisterUserDto;
+import com.mentorship.user_service.models.entity.Role;
 import com.mentorship.user_service.models.entity.User;  
 import com.mentorship.user_service.models.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,18 +22,16 @@ public class AuthenticationService {
     }
 
     public User signup(RegisterUserDto registerUserDto) {
+        // Signup sırasında sadece temel bilgiler - diğerleri profile completion'da doldurulacak
         User user = User.builder()
                 .username(registerUserDto.getUsername())
                 .fullName(registerUserDto.getFullName())
                 .email(registerUserDto.getEmail())
                 .password(passwordEncoder.encode(registerUserDto.getPassword()))
-                .universityId(registerUserDto.getUniversityId())
-                .role(registerUserDto.getRole())
-                .sector(registerUserDto.getSector())
-                .biography(registerUserDto.getBiography())
-                .experience(registerUserDto.getExperience())
-                .rating(registerUserDto.getRating())
-                .build();
+                .role(Role.UNKNOWN) // Kullanıcı daha role seçmedi - profil tamamlamada seçecek
+                .experience(0) // Default değer
+                .rating(0.0) // Default değer
+                .build();   
 
         return userRepository.save(user);
     }
