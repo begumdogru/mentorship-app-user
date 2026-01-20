@@ -13,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     private final AuthenticationService authenticationService;
@@ -28,7 +28,6 @@ public class AuthController {
     public ResponseEntity<User> signup(@RequestBody RegisterUserDto registerUser) {
         User register = authenticationService.signup(registerUser);
         return ResponseEntity.ok(register);
-
     }
     
     @PostMapping("/login")
@@ -56,7 +55,7 @@ public class AuthController {
         UserDto user = UserDto.builder()
                 .username(authenticatedUser != null ? authenticatedUser.getUsername() : null)
                 .fullName(authenticatedUser != null ? authenticatedUser.getFullName() : null)
-                .user_id(authenticatedUser != null ? authenticatedUser.getUserId() : null)
+                .userId(authenticatedUser != null ? authenticatedUser.getUserId() : null)
                 .email(authenticatedUser != null ? authenticatedUser.getEmail() : null)
                 .build();
 

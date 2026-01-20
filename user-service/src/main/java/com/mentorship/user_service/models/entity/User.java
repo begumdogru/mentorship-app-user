@@ -40,19 +40,19 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "university_id", nullable = false)
+    @Column(name = "university_id", nullable = true)
     private Integer universityId;
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "role", nullable = true)
     private Role role;
 
-    @Column(name = "sector", nullable = false)
+    @Column(name = "sector", nullable = true)
     private Integer sector;
 
     @Column(name = "biography")
     private String biography;
 
-    @Column(name = "experience", nullable = false)
+    @Column(name = "experience", nullable = true)
     private Integer experience;
 
     @Column(name = "rating")

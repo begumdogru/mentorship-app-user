@@ -9,4 +9,8 @@ import lombok.Data;
 public class UserSubsResponse {
     private Integer userId;
     private Role role;
+    private Integer universityId;
+    private String universityName;
+    private Integer sectorId;
+    private String sectorName;
 }
