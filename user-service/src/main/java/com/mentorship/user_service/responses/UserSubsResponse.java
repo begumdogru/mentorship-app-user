@@ -13,4 +13,5 @@ public class UserSubsResponse {
     private String universityName;
     private Integer sectorId;
     private String sectorName;
+    private String email;
 }
