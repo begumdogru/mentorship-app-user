@@ -63,6 +63,7 @@ public class UserService {
                 .universityName(universityName)
                 .sectorId(user.getSector())
                 .sectorName(sectorName)
+                .email(user.getEmail())
                 .build();
     }
     
